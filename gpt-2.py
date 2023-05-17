@@ -3,14 +3,17 @@ import os
 
 # Specify the path to the downloaded GPT-2 model checkpoint
 model_name = "124M"
-model_checkpoint_dir = "./path/to/gpt2/models/124M"
-# Download the base GPT-2 model
-gpt2.download_gpt2(model_name=model_name)
+model_checkpoint_dir = "models/124M"
+
+# Download the GPT-2 model if it's not already downloaded
+if not os.path.exists(model_checkpoint_dir):
+    gpt2.download_gpt2(model_name=model_name)
+
 # Specify the path to your fine-tuning data
 data_file = "employee_data.txt"
 
 # Specify the path to the output folder
-output_folder = "./output"
+output_folder = "output/"
 
 # Create the output folder if it doesn't exist
 os.makedirs(output_folder, exist_ok=True)
